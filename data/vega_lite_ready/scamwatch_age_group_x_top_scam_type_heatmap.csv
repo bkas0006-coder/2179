@@ -1,0 +1,97 @@
+﻿age_group,age_group_sort,scam_type,amount_lost,reports,average_loss_per_report
+Under 18,1,Betting and sports investment scams,1310.0,4,327.5
+Under 18,1,Dating and romance scams,6395.0,25,255.8
+Under 18,1,False billing,20440.06,57,358.597544
+Under 18,1,Identity theft,14164.16,134,105.702687
+Under 18,1,Investment scams,47659.79,30,1588.659667
+Under 18,1,Jobs and employment scams,33891.64,51,664.541961
+Under 18,1,Phishing,31628.07,189,167.344286
+Under 18,1,Rebate scams,0.0,3,0.0
+Under 18,1,Remote access scams,313.42,12,26.118333
+Under 18,1,Shopping scams,69237.25,233,297.155579
+Under 18,1,"Threats to life, arrest or other",16853.04,62,271.823226
+Under 18,1,inheritance and unexpected money,10200.0,13,784.615385
+65 and over,7,Betting and sports investment scams,19628.0,45,436.177778
+65 and over,7,Dating and romance scams,6767805.06,428,15812.628645
+65 and over,7,False billing,1191026.0,2734,435.634967
+65 and over,7,Identity theft,684988.19,3529,194.102632
+65 and over,7,Investment scams,37404195.44,716,52240.496425
+65 and over,7,Jobs and employment scams,599110.26,213,2812.724225
+65 and over,7,Phishing,11765779.82,14519,810.371225
+65 and over,7,Rebate scams,2011951.85,356,5651.55014
+65 and over,7,Remote access scams,2303853.97,878,2623.979465
+65 and over,7,Shopping scams,668033.7,1849,361.294592
+65 and over,7,"Threats to life, arrest or other",456207.99,676,674.863891
+65 and over,7,inheritance and unexpected money,1220113.24,379,3219.296148
+55 - 64,98,Betting and sports investment scams,62521.42,32,1953.794375
+45 - 54,98,Betting and sports investment scams,200212.68,38,5268.754737
+35 - 44,98,Betting and sports investment scams,564888.42,101,5592.954653
+25 - 34,98,Betting and sports investment scams,420318.19,78,5388.694744
+18 - 24,98,Betting and sports investment scams,185100.75,37,5002.722973
+55 - 64,98,Dating and romance scams,5842212.19,258,22644.233295
+45 - 54,98,Dating and romance scams,4036318.47,267,15117.29764
+35 - 44,98,Dating and romance scams,1476734.68,318,4643.819748
+25 - 34,98,Dating and romance scams,995497.62,244,4079.908279
+18 - 24,98,Dating and romance scams,1336991.01,179,7469.22352
+55 - 64,98,False billing,966881.0,1250,773.5048
+45 - 54,98,False billing,4982756.33,1094,4554.621874
+35 - 44,98,False billing,3859133.11,936,4123.005459
+25 - 34,98,False billing,1186626.85,725,1636.72669
+18 - 24,98,False billing,458630.73,352,1302.92821
+45 - 54,98,Identity theft,1038880.03,1608,646.06967
+25 - 34,98,Identity theft,1119684.42,1221,917.022457
+35 - 44,98,Identity theft,1078124.54,1538,700.991248
+55 - 64,98,Identity theft,176343.23,1782,98.958042
+18 - 24,98,Identity theft,133572.82,613,217.900196
+35 - 44,98,Investment scams,12626701.2,672,18789.733929
+45 - 54,98,Investment scams,22609852.71,658,34361.478283
+55 - 64,98,Investment scams,22997845.05,542,42431.448432
+18 - 24,98,Investment scams,1249585.71,225,5553.714267
+25 - 34,98,Investment scams,8428346.07,566,14891.070795
+25 - 34,98,Jobs and employment scams,3806422.02,836,4553.136388
+18 - 24,98,Jobs and employment scams,1464940.13,551,2658.693521
+45 - 54,98,Jobs and employment scams,2756325.73,519,5310.839557
+35 - 44,98,Jobs and employment scams,4765657.87,708,6731.155184
+55 - 64,98,Jobs and employment scams,1489105.15,344,4328.794041
+55 - 64,98,Phishing,1998354.59,6386,312.927433
+35 - 44,98,Phishing,4068927.18,2955,1376.963513
+25 - 34,98,Phishing,1288618.81,2089,616.859172
+45 - 54,98,Phishing,2065835.52,4011,515.042513
+18 - 24,98,Phishing,529512.31,944,560.924057
+45 - 54,98,Rebate scams,313886.0,168,1868.369048
+55 - 64,98,Rebate scams,206140.0,154,1338.571429
+25 - 34,98,Rebate scams,88002.35,133,661.671805
+35 - 44,98,Rebate scams,139317.54,153,910.572157
+18 - 24,98,Rebate scams,42458.18,46,923.003913
+18 - 24,98,Remote access scams,19549.13,58,337.053966
+45 - 54,98,Remote access scams,260658.87,268,972.607724
+55 - 64,98,Remote access scams,518698.07,350,1481.994486
+25 - 34,98,Remote access scams,40548.0,139,291.71223
+35 - 44,98,Remote access scams,322745.65,223,1447.28991
+25 - 34,98,Shopping scams,1298968.79,2221,584.857627
+45 - 54,98,Shopping scams,1407395.97,2457,572.810733
+55 - 64,98,Shopping scams,909137.0,2035,446.750369
+35 - 44,98,Shopping scams,1479578.08,2863,516.792903
+18 - 24,98,Shopping scams,694968.88,1212,573.406667
+35 - 44,98,"Threats to life, arrest or other",86948.73,459,189.430784
+45 - 54,98,"Threats to life, arrest or other",220020.8,544,404.45
+18 - 24,98,"Threats to life, arrest or other",6721561.96,268,25080.455075
+25 - 34,98,"Threats to life, arrest or other",2334094.37,438,5328.98258
+55 - 64,98,"Threats to life, arrest or other",150321.66,448,335.53942
+45 - 54,98,inheritance and unexpected money,457276.88,158,2894.157468
+25 - 34,98,inheritance and unexpected money,72776.12,68,1070.237059
+55 - 64,98,inheritance and unexpected money,585862.2,158,3707.988608
+18 - 24,98,inheritance and unexpected money,18790.0,34,552.647059
+35 - 44,98,inheritance and unexpected money,15755.95,93,169.418817
+Unspecified,99,Betting and sports investment scams,30079.9,166,181.204217
+Unspecified,99,Dating and romance scams,1831971.78,569,3219.63406
+Unspecified,99,False billing,5092488.96,3129,1627.51325
+Unspecified,99,Identity theft,1242621.59,4799,258.933442
+Unspecified,99,Investment scams,13879434.13,1240,11193.09204
+Unspecified,99,Jobs and employment scams,1503264.57,1524,986.394075
+Unspecified,99,Phishing,2231573.77,16850,132.437612
+Unspecified,99,Rebate scams,16180.99,482,33.570519
+Unspecified,99,Remote access scams,377787.08,673,561.347816
+Unspecified,99,Shopping scams,1052640.76,4787,219.895709
+Unspecified,99,"Threats to life, arrest or other",303322.37,1118,271.308023
+Unspecified,99,inheritance and unexpected money,544757.56,447,1218.697002

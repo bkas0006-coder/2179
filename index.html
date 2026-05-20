@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The Digital Scam Pipeline</title>
+
+  <!-- Vega / Vega-Lite / Vega Embed -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <main class="page">
+
+    <!-- TITLE -->
+    <header class="hero">
+      <p class="label">FIT2179 Data Visualisation 2</p>
+      <h1>The Digital Scam Pipeline</h1>
+      <p class="subtitle">
+        How Australians are targeted, tricked and financially harmed through digital scams.
+      </p>
+    </header>
+
+    <!-- INTRO -->
+    <section class="section intro-layout">
+      <div class="story-block">
+        <p class="label">Opening</p>
+        <h2>Digital scams in Australia</h2>
+        <ul>
+          <li>brief intro to digital scams in Australia</li>
+          <li>scams through texts, calls, emails, social media, online platforms and payments</li>
+          <li>what the page is showing: how scams happen, who is affected, and where the money is lost</li>
+          <li>main idea: scam harm is not spread evenly</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 1 -->
+    <section class="section">
+      <div class="story-block">
+        <p class="label">Scale</p>
+        <h2>How large is the scam problem?</h2>
+        <ul>
+          <li>overall scale of scam losses and reports</li>
+          <li>monthly pattern across 2025</li>
+          <li>compare money lost vs number of reports</li>
+          <li>check if highest loss month also has highest reports</li>
+        </ul>
+      </div>
+
+      <div class="chart-card full">
+        <h3>Monthly scam losses and reports</h3>
+        <div id="chart_monthly"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section">
+      <div class="story-block">
+        <p class="label">Scam types</p>
+        <h2>Which scam types cause the most harm?</h2>
+        <ul>
+          <li>compare scam types causing highest losses</li>
+          <li>compare scam types reported most often</li>
+          <li>show difference between common scams and high-loss scams</li>
+          <li>possible point: most common does not always mean most harmful</li>
+        </ul>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>Top scam types by money lost</h3>
+          <div id="chart_top_loss"></div>
+        </div>
+
+        <div class="chart-card">
+          <h3>Top scam types by reports</h3>
+          <div id="chart_top_reports"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section">
+      <div class="story-block">
+        <p class="label">Frequency vs harm</p>
+        <h2>Common scams are not always the most costly</h2>
+        <ul>
+          <li>reports vs losses together</li>
+          <li>find scams with high reports but lower losses</li>
+          <li>find scams with lower reports but higher losses</li>
+          <li>bubble size = average loss per report</li>
+          <li>highlight any obvious outliers</li>
+        </ul>
+      </div>
+
+      <div class="chart-card full">
+        <h3>Reports versus losses by scam type</h3>
+        <div id="chart_bubble"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section">
+      <div class="story-block">
+        <p class="label">Contact methods and age</p>
+        <h2>How do scammers reach Australians?</h2>
+        <ul>
+          <li>contact methods scammers use</li>
+          <li>online, phone, text, email and other channels</li>
+          <li>which contact methods lead to bigger losses</li>
+          <li>age groups affected by different scam types</li>
+          <li>connect targeting method to who gets harmed</li>
+        </ul>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>Contact methods used by scammers</h3>
+          <div id="chart_contact"></div>
+        </div>
+
+        <div class="chart-card">
+          <h3>Age group and scam type heatmap</h3>
+          <div id="chart_heatmap"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="section">
+      <div class="story-block">
+        <p class="label">Location</p>
+        <h2>Where is scam harm reported?</h2>
+        <ul>
+          <li>state and territory differences</li>
+          <li>map showing scam harm across Australia</li>
+          <li>ranking chart to make comparison clearer</li>
+          <li>mention raw totals can be affected by population size</li>
+          <li>possible later fix: proper choropleth map with boundaries</li>
+        </ul>
+      </div>
+
+      <div class="map-grid">
+        <div class="chart-card">
+          <h3>State and territory scam map</h3>
+          <div id="chart_map"></div>
+        </div>
+
+        <div class="chart-card">
+          <h3>State and territory ranking</h3>
+          <div id="chart_state_ranking"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="section">
+      <div class="story-block">
+        <p class="label">Broader fraud context</p>
+        <h2>Scams within personal fraud</h2>
+        <ul>
+          <li>bring in ABS personal fraud data</li>
+          <li>compare scams with card fraud, identity theft and online impersonation</li>
+          <li>show scams as part of wider personal fraud issue</li>
+          <li>ABS age group comparison</li>
+          <li>support Scamwatch findings with another source</li>
+        </ul>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>Personal fraud types over time</h3>
+          <div id="chart_abs_types"></div>
+        </div>
+
+        <div class="chart-card">
+          <h3>Scam victimisation by age group</h3>
+          <div id="chart_abs_age"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 7 -->
+    <section class="section">
+      <div class="story-block">
+        <p class="label">Impact</p>
+        <h2>What happens after people are targeted?</h2>
+        <ul>
+          <li>impact beyond just money lost</li>
+          <li>help-seeking after cybercrime</li>
+          <li>different harms: financial, emotional, practical, social</li>
+          <li>make ending feel more human</li>
+          <li>show why scam harm matters even after the scam itself</li>
+        </ul>
+      </div>
+
+      <div class="chart-grid">
+        <div class="chart-card">
+          <h3>Help-seeking after cybercrime</h3>
+          <div id="chart_aic_help"></div>
+        </div>
+
+        <div class="chart-card">
+          <h3>Harms experienced after cybercrime</h3>
+          <div id="chart_aic_harms"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION -->
+    <section class="section final-section">
+      <div class="story-block">
+        <p class="label">Conclusion</p>
+        <h2>Final takeaway</h2>
+        <ul>
+          <li>bring full scam pathway together</li>
+          <li>contact method → scam type → money lost → wider harm</li>
+          <li>scam risk and scam harm are uneven</li>
+          <li>awareness, reporting and prevention matter</li>
+          <li>end with a simple clear takeaway</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

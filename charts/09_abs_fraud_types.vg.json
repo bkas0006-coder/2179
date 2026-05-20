@@ -1,0 +1,70 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 360,
+  "data": {
+    "url": "data/vega_lite_ready/personal_fraud_selected_types_time_series_persons.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.sex == 'Persons'"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "point": true,
+    "interpolate": "monotone"
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": "Year"
+    },
+    "y": {
+      "field": "victimisation_rate_percent",
+      "type": "quantitative",
+      "title": "Victimisation rate (%)"
+    },
+    "color": {
+      "field": "fraud_type",
+      "type": "nominal",
+      "title": "Fraud type"
+    },
+    "tooltip": [
+      {
+        "field": "fraud_type",
+        "type": "nominal",
+        "title": "Fraud type"
+      },
+      {
+        "field": "year",
+        "type": "ordinal",
+        "title": "Year"
+      },
+      {
+        "field": "persons_000",
+        "type": "quantitative",
+        "title": "Persons ('000)",
+        "format": ",.1f"
+      },
+      {
+        "field": "victimisation_rate_percent",
+        "type": "quantitative",
+        "title": "Victimisation rate",
+        "format": ".1f"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "gridColor": "#eeeeee"
+    },
+    "legend": {
+      "orient": "bottom"
+    }
+  }
+}

@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f7f7f7;
+  --card: #ffffff;
+  --text: #111111;
+  --muted: #666666;
+  --line: #cfcfcf;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.page {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 28px 24px 60px;
+}
+
+/* title area */
+.hero {
+  padding: 32px 0 28px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 36px;
+}
+
+.label {
+  margin: 0 0 10px;
+  font-size: 0.78rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+h1 {
+  margin: 0 0 14px;
+  max-width: 900px;
+  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 760px;
+  font-size: 1.15rem;
+  line-height: 1.5;
+  color: #333333;
+}
+
+/* sections */
+.section {
+  margin: 0 0 64px;
+}
+
+.story-block {
+  max-width: 900px;
+  margin-bottom: 22px;
+  padding: 20px 22px;
+  background: #ffffff;
+  border: 1px solid var(--line);
+}
+
+.story-block h2 {
+  margin: 0 0 12px;
+  font-size: clamp(1.35rem, 3vw, 2rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.story-block ul {
+  margin: 0;
+  padding-left: 22px;
+  color: #333333;
+}
+
+.story-block li {
+  margin: 7px 0;
+  line-height: 1.5;
+}
+
+/* chart cards */
+.chart-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 18px;
+  min-height: 320px;
+  overflow-x: auto;
+}
+
+.chart-card h3 {
+  margin: 0 0 14px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #222222;
+}
+
+.chart-card.full {
+  width: 100%;
+}
+
+/* chart layouts */
+.chart-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.map-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 22px;
+}
+
+/* simple ending */
+.final-section {
+  margin-bottom: 0;
+}
+
+/* Vega sizing */
+.vega-embed {
+  width: 100%;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .chart-grid,
+  .map-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page {
+    padding: 22px 14px 48px;
+  }
+
+  .hero {
+    padding-top: 22px;
+  }
+
+  .story-block,
+  .chart-card {
+    padding: 16px;
+  }
+}

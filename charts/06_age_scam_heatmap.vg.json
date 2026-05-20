@@ -1,0 +1,81 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 420,
+  "data": {
+    "url": "data/vega_lite_ready/scamwatch_age_group_x_top_scam_type_heatmap.csv"
+  },
+  "mark": {
+    "type": "rect",
+    "cornerRadius": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "scam_type",
+      "type": "nominal",
+      "title": null,
+      "axis": {
+        "labelAngle": -35,
+        "labelLimit": 120
+      }
+    },
+    "y": {
+      "field": "age_group",
+      "type": "nominal",
+      "sort": {
+        "field": "age_group_sort",
+        "order": "ascending"
+      },
+      "title": null
+    },
+    "color": {
+      "field": "amount_lost",
+      "type": "quantitative",
+      "title": "Amount lost",
+      "scale": {
+        "scheme": "blues"
+      },
+      "legend": {
+        "format": "$~s"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "age_group",
+        "type": "nominal",
+        "title": "Age group"
+      },
+      {
+        "field": "scam_type",
+        "type": "nominal",
+        "title": "Scam type"
+      },
+      {
+        "field": "amount_lost",
+        "type": "quantitative",
+        "title": "Amount lost",
+        "format": "$,.0f"
+      },
+      {
+        "field": "reports",
+        "type": "quantitative",
+        "title": "Reports",
+        "format": ","
+      },
+      {
+        "field": "average_loss_per_report",
+        "type": "quantitative",
+        "title": "Average loss per report",
+        "format": "$,.0f"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false
+    }
+  }
+}

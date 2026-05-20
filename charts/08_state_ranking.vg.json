@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 390,
+  "data": {
+    "url": "data/vega_lite_ready/scamwatch_state_territory_summary_for_map.csv"
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 5,
+    "color": "#0071e3"
+  },
+  "encoding": {
+    "y": {
+      "field": "state_abbrev",
+      "type": "nominal",
+      "sort": "-x",
+      "title": null
+    },
+    "x": {
+      "field": "average_loss_per_report",
+      "type": "quantitative",
+      "title": "Average loss per report",
+      "axis": {
+        "format": "$~s"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State/territory"
+      },
+      {
+        "field": "average_loss_per_report",
+        "type": "quantitative",
+        "title": "Average loss per report",
+        "format": "$,.0f"
+      },
+      {
+        "field": "amount_lost",
+        "type": "quantitative",
+        "title": "Amount lost",
+        "format": "$,.0f"
+      },
+      {
+        "field": "reports",
+        "type": "quantitative",
+        "title": "Reports",
+        "format": ","
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "gridColor": "#eeeeee"
+    }
+  }
+}
