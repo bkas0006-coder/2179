@@ -1,13 +1,21 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "width": "container",
-  "height": 380,
+  "height": 390,
   "data": {
     "url": "data/vega_lite_ready/scamwatch_contact_method_by_category.csv"
   },
+  "transform": [
+    {
+      "filter": "datum.contact_method != 'unspecified' && datum.contact_method != 'Unspecified'"
+    }
+  ],
   "mark": {
-    "type": "bar",
-    "cornerRadiusEnd": 3
+    "type": "bar"
   },
   "encoding": {
     "y": {
@@ -28,7 +36,12 @@
     "color": {
       "field": "scam_category",
       "type": "nominal",
-      "title": "Scam category"
+      "title": "Scam category",
+      "legend": {
+        "orient": "bottom",
+        "columns": 3,
+        "labelLimit": 180
+      }
     },
     "tooltip": [
       {
@@ -60,10 +73,9 @@
       "stroke": null
     },
     "axis": {
-      "gridColor": "#eeeeee"
-    },
-    "legend": {
-      "orient": "bottom"
+      "gridColor": "#eeeeee",
+      "labelColor": "#333333",
+      "titleColor": "#111111"
     }
   }
 }

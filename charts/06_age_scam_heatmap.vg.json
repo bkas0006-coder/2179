@@ -1,13 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "width": "container",
   "height": 420,
   "data": {
     "url": "data/vega_lite_ready/scamwatch_age_group_x_top_scam_type_heatmap.csv"
   },
   "mark": {
-    "type": "rect",
-    "cornerRadius": 2
+    "type": "rect"
   },
   "encoding": {
     "x": {
@@ -15,8 +18,8 @@
       "type": "nominal",
       "title": null,
       "axis": {
-        "labelAngle": -35,
-        "labelLimit": 120
+        "labelAngle": -40,
+        "labelLimit": 130
       }
     },
     "y": {
@@ -75,7 +78,9 @@
       "stroke": null
     },
     "axis": {
-      "grid": false
+      "grid": false,
+      "labelColor": "#333333",
+      "titleColor": "#111111"
     }
   }
 }

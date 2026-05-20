@@ -8,6 +8,7 @@
   --text: #111111;
   --muted: #666666;
   --line: #cfcfcf;
+  --dash: #b8b8b8;
 }
 
 body {
@@ -18,14 +19,14 @@ body {
 }
 
 .page {
-  max-width: 1180px;
+  max-width: 1280px;
   margin: 0 auto;
   padding: 28px 24px 60px;
 }
 
 /* title area */
 .hero {
-  padding: 32px 0 28px;
+  padding: 30px 0 28px;
   border-bottom: 1px solid var(--line);
   margin-bottom: 36px;
 }
@@ -41,36 +42,44 @@ body {
 
 h1 {
   margin: 0 0 14px;
-  max-width: 900px;
-  font-size: clamp(2.4rem, 6vw, 4.8rem);
+  max-width: 1050px;
+  font-size: clamp(2.5rem, 6vw, 4.8rem);
   line-height: 1;
   letter-spacing: -0.04em;
 }
 
 .subtitle {
   margin: 0;
-  max-width: 760px;
-  font-size: 1.15rem;
+  max-width: 830px;
+  font-size: 1.12rem;
   line-height: 1.5;
   color: #333333;
 }
 
 /* sections */
 .section {
-  margin: 0 0 64px;
+  margin: 0 0 58px;
+}
+
+/* note + storytelling layout */
+.section-planning {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+  gap: 22px;
+  margin-bottom: 22px;
+  align-items: stretch;
 }
 
 .story-block {
-  max-width: 900px;
-  margin-bottom: 22px;
-  padding: 20px 22px;
-  background: #ffffff;
+  background: var(--card);
   border: 1px solid var(--line);
+  padding: 20px 22px;
+  min-height: 210px;
 }
 
 .story-block h2 {
   margin: 0 0 12px;
-  font-size: clamp(1.35rem, 3vw, 2rem);
+  font-size: clamp(1.25rem, 2.5vw, 1.85rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -83,7 +92,25 @@ h1 {
 
 .story-block li {
   margin: 7px 0;
-  line-height: 1.5;
+  line-height: 1.45;
+}
+
+.storytelling-space {
+  border: 1px dashed var(--dash);
+  background: #fafafa;
+  min-height: 210px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.storytelling-space span {
+  font-size: 0.95rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #777777;
 }
 
 /* chart cards */
@@ -92,7 +119,7 @@ h1 {
   border: 1px solid var(--line);
   padding: 18px;
   min-height: 320px;
-  overflow-x: auto;
+  overflow-x: hidden;
 }
 
 .chart-card h3 {
@@ -106,6 +133,10 @@ h1 {
   width: 100%;
 }
 
+.chart-spacer {
+  margin-top: 22px;
+}
+
 /* chart layouts */
 .chart-grid {
   display: grid;
@@ -115,7 +146,7 @@ h1 {
 
 .map-grid {
   display: grid;
-  grid-template-columns: 1.35fr 0.85fr;
+  grid-template-columns: 1.25fr 0.9fr;
   gap: 22px;
 }
 
@@ -129,8 +160,14 @@ h1 {
   width: 100%;
 }
 
+.vega-embed svg {
+  max-width: 100%;
+  height: auto;
+}
+
 /* responsive */
-@media (max-width: 900px) {
+@media (max-width: 950px) {
+  .section-planning,
   .chart-grid,
   .map-grid {
     grid-template-columns: 1fr;
@@ -145,6 +182,7 @@ h1 {
   }
 
   .story-block,
+  .storytelling-space,
   .chart-card {
     padding: 16px;
   }

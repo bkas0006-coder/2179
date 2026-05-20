@@ -1,5 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "data": {
     "url": "data/vega_lite_ready/scamwatch_monthly.csv"
   },
@@ -13,15 +17,18 @@
         "point": true,
         "interpolate": "monotone",
         "opacity": 0.35,
-        "color": "#0071e3"
+        "color": "#4d6fa9"
       },
       "encoding": {
         "x": {
-          "field": "month",
-          "type": "temporal",
+          "field": "month_label",
+          "type": "ordinal",
+          "sort": {
+            "field": "month",
+            "order": "ascending"
+          },
           "title": null,
           "axis": {
-            "format": "%b",
             "labelAngle": 0
           }
         },
@@ -50,32 +57,27 @@
             "type": "quantitative",
             "title": "Reports",
             "format": ","
-          },
-          {
-            "field": "average_loss_per_report",
-            "type": "quantitative",
-            "title": "Average loss per report",
-            "format": "$,.0f"
           }
         ]
       }
     },
     {
       "width": "container",
-      "height": 100,
+      "height": 95,
       "mark": {
         "type": "bar",
-        "cornerRadiusTopLeft": 4,
-        "cornerRadiusTopRight": 4,
-        "color": "#86868b"
+        "color": "#888888"
       },
       "encoding": {
         "x": {
-          "field": "month",
-          "type": "temporal",
+          "field": "month_label",
+          "type": "ordinal",
+          "sort": {
+            "field": "month",
+            "order": "ascending"
+          },
           "title": "Month",
           "axis": {
-            "format": "%b %Y",
             "labelAngle": 0
           }
         },
@@ -109,8 +111,8 @@
     },
     "axis": {
       "gridColor": "#eeeeee",
-      "labelColor": "#6e6e73",
-      "titleColor": "#6e6e73"
+      "labelColor": "#555555",
+      "titleColor": "#222222"
     }
   }
 }

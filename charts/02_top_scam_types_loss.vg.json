@@ -1,23 +1,40 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
   "width": "container",
-  "height": 420,
+  "height": 460,
   "data": {
     "url": "data/vega_lite_ready/scamwatch_top_scam_types_by_loss_top15.csv"
   },
+  "transform": [
+    {
+      "calculate": "datum.amount_lost / 1000000",
+      "as": "amount_lost_millions"
+    },
+    {
+      "calculate": "'$' + format(datum.amount_lost_millions, '.1f') + 'M'",
+      "as": "amount_label"
+    }
+  ],
   "layer": [
     {
       "mark": {
-        "type": "rule",
-        "strokeWidth": 2,
-        "color": "#d2d2d7"
+        "type": "bar",
+        "height": 3,
+        "color": "#cfcfcf"
       },
       "encoding": {
         "y": {
           "field": "scam_type",
           "type": "nominal",
           "sort": "-x",
-          "title": null
+          "title": null,
+          "axis": {
+            "labelLimit": 280
+          }
         },
         "x": {
           "field": "amount_lost",
@@ -26,22 +43,41 @@
           "axis": {
             "format": "$~s"
           }
-        }
+        },
+        "tooltip": [
+          {
+            "field": "scam_type",
+            "type": "nominal",
+            "title": "Scam type"
+          },
+          {
+            "field": "amount_lost",
+            "type": "quantitative",
+            "title": "Amount lost",
+            "format": "$,.0f"
+          }
+        ]
       }
     },
     {
       "mark": {
-        "type": "point",
+        "type": "circle",
         "filled": true,
-        "size": 130,
-        "color": "#0071e3"
+        "size": 125,
+        "color": "#6f91df",
+        "opacity": 0.9,
+        "stroke": "white",
+        "strokeWidth": 1
       },
       "encoding": {
         "y": {
           "field": "scam_type",
           "type": "nominal",
           "sort": "-x",
-          "title": null
+          "title": null,
+          "axis": {
+            "labelLimit": 280
+          }
         },
         "x": {
           "field": "amount_lost",
@@ -78,6 +114,31 @@
           }
         ]
       }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 8,
+        "fontSize": 10,
+        "color": "#333333"
+      },
+      "encoding": {
+        "y": {
+          "field": "scam_type",
+          "type": "nominal",
+          "sort": "-x"
+        },
+        "x": {
+          "field": "amount_lost",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "amount_label",
+          "type": "nominal"
+        }
+      }
     }
   ],
   "config": {
@@ -86,7 +147,8 @@
     },
     "axis": {
       "gridColor": "#eeeeee",
-      "labelLimit": 190
+      "labelColor": "#333333",
+      "titleColor": "#111111"
     }
   }
 }
