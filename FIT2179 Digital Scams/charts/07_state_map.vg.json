@@ -1,0 +1,247 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 390,
+  "projection": {
+    "type": "mercator",
+    "center": [134, -28],
+    "scale": 620
+  },
+  "layer": [
+    {
+      "data": {
+        "sphere": true
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f5f5f7",
+        "stroke": "#d2d2d7"
+      }
+    },
+    {
+      "data": {
+        "graticule": {
+          "step": [10, 10]
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#e5e5ea",
+        "strokeWidth": 0.7
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "state_abbrev": "WA",
+            "longitude": 122,
+            "latitude": -25
+          },
+          {
+            "state_abbrev": "NT",
+            "longitude": 133,
+            "latitude": -19
+          },
+          {
+            "state_abbrev": "SA",
+            "longitude": 135,
+            "latitude": -30
+          },
+          {
+            "state_abbrev": "QLD",
+            "longitude": 144,
+            "latitude": -22
+          },
+          {
+            "state_abbrev": "NSW",
+            "longitude": 147,
+            "latitude": -32
+          },
+          {
+            "state_abbrev": "VIC",
+            "longitude": 145,
+            "latitude": -37
+          },
+          {
+            "state_abbrev": "TAS",
+            "longitude": 147,
+            "latitude": -42
+          },
+          {
+            "state_abbrev": "ACT",
+            "longitude": 149,
+            "latitude": -35.3
+          }
+        ]
+      },
+      "transform": [
+        {
+          "lookup": "state_abbrev",
+          "from": {
+            "data": {
+              "url": "data/vega_lite_ready/scamwatch_state_territory_summary_for_map.csv"
+            },
+            "key": "state_abbrev",
+            "fields": [
+              "state",
+              "amount_lost",
+              "reports",
+              "average_loss_per_report",
+              "top_scam_type_by_loss",
+              "top_contact_method_by_loss"
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "opacity": 0.82,
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "amount_lost",
+          "type": "quantitative",
+          "title": "Amount lost",
+          "scale": {
+            "range": [200, 3200]
+          },
+          "legend": {
+            "format": "$~s"
+          }
+        },
+        "color": {
+          "field": "average_loss_per_report",
+          "type": "quantitative",
+          "title": "Average loss per report",
+          "scale": {
+            "scheme": "blues"
+          },
+          "legend": {
+            "format": "$~s"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State/territory"
+          },
+          {
+            "field": "amount_lost",
+            "type": "quantitative",
+            "title": "Amount lost",
+            "format": "$,.0f"
+          },
+          {
+            "field": "reports",
+            "type": "quantitative",
+            "title": "Reports",
+            "format": ","
+          },
+          {
+            "field": "average_loss_per_report",
+            "type": "quantitative",
+            "title": "Average loss per report",
+            "format": "$,.0f"
+          },
+          {
+            "field": "top_scam_type_by_loss",
+            "type": "nominal",
+            "title": "Top scam type"
+          },
+          {
+            "field": "top_contact_method_by_loss",
+            "type": "nominal",
+            "title": "Top contact method"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "state_abbrev": "WA",
+            "longitude": 122,
+            "latitude": -25
+          },
+          {
+            "state_abbrev": "NT",
+            "longitude": 133,
+            "latitude": -19
+          },
+          {
+            "state_abbrev": "SA",
+            "longitude": 135,
+            "latitude": -30
+          },
+          {
+            "state_abbrev": "QLD",
+            "longitude": 144,
+            "latitude": -22
+          },
+          {
+            "state_abbrev": "NSW",
+            "longitude": 147,
+            "latitude": -32
+          },
+          {
+            "state_abbrev": "VIC",
+            "longitude": 145,
+            "latitude": -37
+          },
+          {
+            "state_abbrev": "TAS",
+            "longitude": 147,
+            "latitude": -42
+          },
+          {
+            "state_abbrev": "ACT",
+            "longitude": 149,
+            "latitude": -35.3
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": -18,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#1d1d1f"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "latitude",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_abbrev",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "orient": "bottom"
+    }
+  }
+}

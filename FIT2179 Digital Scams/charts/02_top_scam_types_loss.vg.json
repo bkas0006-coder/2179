@@ -1,0 +1,92 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 420,
+  "data": {
+    "url": "data/vega_lite_ready/scamwatch_top_scam_types_by_loss_top15.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 2,
+        "color": "#d2d2d7"
+      },
+      "encoding": {
+        "y": {
+          "field": "scam_type",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null
+        },
+        "x": {
+          "field": "amount_lost",
+          "type": "quantitative",
+          "title": "Amount lost ($)",
+          "axis": {
+            "format": "$~s"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 130,
+        "color": "#0071e3"
+      },
+      "encoding": {
+        "y": {
+          "field": "scam_type",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null
+        },
+        "x": {
+          "field": "amount_lost",
+          "type": "quantitative"
+        },
+        "tooltip": [
+          {
+            "field": "scam_type",
+            "type": "nominal",
+            "title": "Scam type"
+          },
+          {
+            "field": "primary_scam_category",
+            "type": "nominal",
+            "title": "Category"
+          },
+          {
+            "field": "amount_lost",
+            "type": "quantitative",
+            "title": "Amount lost",
+            "format": "$,.0f"
+          },
+          {
+            "field": "reports",
+            "type": "quantitative",
+            "title": "Reports",
+            "format": ","
+          },
+          {
+            "field": "average_loss_per_report",
+            "type": "quantitative",
+            "title": "Average loss per report",
+            "format": "$,.0f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "gridColor": "#eeeeee",
+      "labelLimit": 190
+    }
+  }
+}

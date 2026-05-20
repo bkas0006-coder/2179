@@ -1,0 +1,69 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 380,
+  "data": {
+    "url": "data/vega_lite_ready/scamwatch_contact_method_by_category.csv"
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 3
+  },
+  "encoding": {
+    "y": {
+      "field": "contact_method",
+      "type": "nominal",
+      "title": null,
+      "sort": "-x"
+    },
+    "x": {
+      "field": "amount_lost",
+      "type": "quantitative",
+      "stack": "normalize",
+      "title": "Share of losses",
+      "axis": {
+        "format": "%"
+      }
+    },
+    "color": {
+      "field": "scam_category",
+      "type": "nominal",
+      "title": "Scam category"
+    },
+    "tooltip": [
+      {
+        "field": "contact_method",
+        "type": "nominal",
+        "title": "Contact method"
+      },
+      {
+        "field": "scam_category",
+        "type": "nominal",
+        "title": "Category"
+      },
+      {
+        "field": "amount_lost",
+        "type": "quantitative",
+        "title": "Amount lost",
+        "format": "$,.0f"
+      },
+      {
+        "field": "reports",
+        "type": "quantitative",
+        "title": "Reports",
+        "format": ","
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "gridColor": "#eeeeee"
+    },
+    "legend": {
+      "orient": "bottom"
+    }
+  }
+}

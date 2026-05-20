@@ -1,0 +1,65 @@
+﻿contact_method,scam_category,amount_lost,reports,average_loss_per_report
+Email,Investment scams,17260445.77,673,25647.021947
+Email,Buying or selling,13529579.27,9954,1359.210294
+Email,Attempts to gain your personal information,8794952.38,39246,224.098058
+Email,Unexpected money,1972576.83,1508,1308.074821
+Email,Dating and romance,541239.18,368,1470.758641
+Email,Jobs and employment,389412.62,577,674.891889
+Email,Threats and extortion,364200.99,5308,68.6136
+Email,Unexpected winnings,153809.89,1120,137.330259
+Email,Other,115035.94,4239,27.137518
+Email,Fake charities,12280.0,102,120.392157
+In person,Investment scams,10606656.81,184,57644.873967
+In person,Buying or selling,2314051.9,526,4399.338213
+In person,Dating and romance,963562.0,52,18530.038462
+In person,Attempts to gain your personal information,730098.32,397,1839.038589
+In person,Unexpected money,236016.0,31,7613.419355
+In person,Jobs and employment,201246.22,74,2719.543514
+In person,Fake charities,64301.0,77,835.077922
+In person,Threats and extortion,51024.3,44,1159.643182
+In person,Other,49095.94,375,130.922507
+In person,Unexpected winnings,336.8,12,28.066667
+Mail,Attempts to gain your personal information,974861.38,562,1734.62879
+Mail,Buying or selling,631107.98,514,1227.836537
+Mail,Unexpected winnings,216323.61,248,872.272621
+Mail,Investment scams,128883.44,24,5370.143333
+Mail,Jobs and employment,52102.78,48,1085.474583
+Mail,Dating and romance,12620.0,11,1147.272727
+Mail,Other,2919.23,279,10.46319
+Mail,Fake charities,400.0,6,66.666667
+Mail,Unexpected money,120.0,167,0.718563
+Mail,Threats and extortion,0.0,37,0.0
+Online,Investment scams,62989337.45,2671,23582.679689
+Online,Dating and romance,18348606.25,1628,11270.64266
+Online,Jobs and employment,12928941.66,1974,6549.615836
+Online,Buying or selling,9009783.57,14427,624.508461
+Online,Attempts to gain your personal information,6083975.5,5332,1141.030664
+Online,Threats and extortion,1822560.0,339,5376.283186
+Online,Unexpected money,1134727.57,234,4849.26312
+Online,Other,319861.43,2107,151.808937
+Online,Unexpected winnings,214981.5,435,494.210345
+Online,Fake charities,123448.75,207,596.370773
+Phone call,Investment scams,27693333.86,1154,23997.689653
+Phone call,Attempts to gain your personal information,11989914.41,14955,801.732826
+Phone call,Threats and extortion,7753808.94,715,10844.488028
+Phone call,Unexpected money,2179150.86,627,3475.519713
+Phone call,Buying or selling,1378302.19,3427,402.189142
+Phone call,Dating and romance,1236468.3,81,15265.040741
+Phone call,Jobs and employment,188902.35,192,983.866406
+Phone call,Other,84392.32,5250,16.074728
+Phone call,Unexpected winnings,59912.8,137,437.319708
+Phone call,Fake charities,23851.97,180,132.510944
+Text message,Attempts to gain your personal information,5498093.13,13337,412.243618
+Text message,Jobs and employment,2844730.04,2112,1346.936572
+Text message,Investment scams,2049022.13,444,4614.914707
+Text message,Dating and romance,1191430.08,147,8104.966531
+Text message,Buying or selling,589182.32,2267,259.895157
+Text message,Threats and extortion,337822.45,221,1528.608371
+Text message,Unexpected money,220877.6,278,794.523741
+Text message,Other,61938.4,2438,25.405414
+Text message,Unexpected winnings,46054.46,146,315.441507
+Text message,Fake charities,2000.0,30,66.666667
+unspecified,Buying or selling,94.74,1,94.74
+unspecified,Dating and romance,0.0,1,0.0
+unspecified,Other,0.0,7,0.0
+unspecified,Attempts to gain your personal information,0.0,3,0.0
