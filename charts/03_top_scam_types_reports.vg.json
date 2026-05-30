@@ -1,0 +1,280 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "width": "container",
+  "height": 500,
+  "data": {
+    "url": "data/vega_lite_ready/scamwatch_scam_type_summary.csv"
+  },
+  "transform": [
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "report_rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "reports",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "loss_rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "amount_lost",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "filter": "datum.report_rank <= 12 || datum.loss_rank <= 12"
+    },
+    {
+      "calculate": "datum.report_rank - datum.loss_rank",
+      "as": "rank_gap"
+    },
+    {
+      "calculate": "abs(datum.rank_gap)",
+      "as": "rank_gap_abs"
+    },
+    {
+      "calculate": "datum.rank_gap >= 4 ? 'Costlier than common' : datum.rank_gap <= -4 ? 'Common but lower-loss' : 'Similar rank'",
+      "as": "rank_story"
+    },
+    {
+      "fold": [
+        "report_rank",
+        "loss_rank"
+      ],
+      "as": [
+        "rank_metric",
+        "rank_value"
+      ]
+    },
+    {
+      "calculate": "datum.rank_metric == 'report_rank' ? 'Reports rank' : 'Loss rank'",
+      "as": "rank_label"
+    },
+    {
+      "calculate": "datum.rank_metric == 'report_rank' ? 1 : 2",
+      "as": "rank_order"
+    },
+    {
+      "calculate": "'#' + datum.rank_value",
+      "as": "rank_text"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.2,
+        "opacity": 0.62
+      },
+      "encoding": {
+        "x": {
+          "field": "rank_value",
+          "type": "quantitative",
+          "title": "Rank (1 = highest)",
+          "scale": {
+            "domain": [1, 22]
+          },
+          "axis": {
+            "tickMinStep": 1,
+            "grid": true
+          }
+        },
+        "y": {
+          "field": "scam_type",
+          "type": "nominal",
+          "title": null,
+          "sort": {
+            "field": "rank_gap_abs",
+            "order": "descending"
+          },
+          "axis": {
+            "labelLimit": 300
+          }
+        },
+        "detail": {
+          "field": "scam_type"
+        },
+        "color": {
+          "field": "rank_story",
+          "type": "nominal",
+          "title": "Mismatch type",
+          "scale": {
+            "domain": [
+              "Costlier than common",
+              "Common but lower-loss",
+              "Similar rank"
+            ],
+            "range": [
+              "#0071e3",
+              "#8e8e93",
+              "#d2d2d7"
+            ]
+          },
+          "legend": {
+            "orient": "bottom"
+          }
+        },
+        "order": {
+          "field": "rank_order",
+          "type": "ordinal"
+        },
+        "tooltip": [
+          {
+            "field": "scam_type",
+            "type": "nominal",
+            "title": "Scam type"
+          },
+          {
+            "field": "report_rank",
+            "type": "quantitative",
+            "title": "Report rank"
+          },
+          {
+            "field": "loss_rank",
+            "type": "quantitative",
+            "title": "Loss rank"
+          },
+          {
+            "field": "reports",
+            "type": "quantitative",
+            "title": "Reports",
+            "format": ","
+          },
+          {
+            "field": "amount_lost",
+            "type": "quantitative",
+            "title": "Amount lost",
+            "format": "$,.0f"
+          },
+          {
+            "field": "average_loss_per_report",
+            "type": "quantitative",
+            "title": "Average loss per report",
+            "format": "$,.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 125,
+        "stroke": "white",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "field": "rank_value",
+          "type": "quantitative",
+          "scale": {
+            "domain": [1, 22]
+          }
+        },
+        "y": {
+          "field": "scam_type",
+          "type": "nominal",
+          "sort": {
+            "field": "rank_gap_abs",
+            "order": "descending"
+          }
+        },
+        "shape": {
+          "field": "rank_label",
+          "type": "nominal",
+          "title": null,
+          "legend": {
+            "orient": "bottom"
+          }
+        },
+        "color": {
+          "field": "rank_story",
+          "type": "nominal",
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "scam_type",
+            "type": "nominal",
+            "title": "Scam type"
+          },
+          {
+            "field": "rank_label",
+            "type": "nominal",
+            "title": "Shown rank"
+          },
+          {
+            "field": "rank_value",
+            "type": "quantitative",
+            "title": "Rank"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 7,
+        "fontSize": 10,
+        "color": "#333333"
+      },
+      "encoding": {
+        "x": {
+          "field": "rank_value",
+          "type": "quantitative",
+          "scale": {
+            "domain": [1, 22]
+          }
+        },
+        "y": {
+          "field": "scam_type",
+          "type": "nominal",
+          "sort": {
+            "field": "rank_gap_abs",
+            "order": "descending"
+          }
+        },
+        "text": {
+          "field": "rank_text",
+          "type": "nominal"
+        },
+        "opacity": {
+          "condition": {
+            "test": "datum.rank_gap_abs >= 5",
+            "value": 1
+          },
+          "value": 0
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "gridColor": "#eeeeee",
+      "labelColor": "#333333",
+      "titleColor": "#111111"
+    }
+  }
+}

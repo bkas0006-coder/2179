@@ -1,0 +1,162 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "width": "container",
+  "height": 470,
+  "data": {
+    "url": "data/vega_lite_ready/scamwatch_top_scam_types_by_loss_top15.csv"
+  },
+  "transform": [
+    {
+      "calculate": "datum.amount_lost / 1000000",
+      "as": "amount_lost_millions"
+    },
+    {
+      "calculate": "'$' + format(datum.amount_lost_millions, '.1f') + 'M'",
+      "as": "amount_label"
+    },
+    {
+      "calculate": "datum.scam_type == 'Investment scams' ? 'Major outlier' : 'Other high-loss scams'",
+      "as": "loss_group"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": 3,
+        "color": "#d2d2d7"
+      },
+      "encoding": {
+        "y": {
+          "field": "scam_type",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null,
+          "axis": {
+            "labelLimit": 300
+          }
+        },
+        "x": {
+          "field": "amount_lost",
+          "type": "quantitative",
+          "title": "Amount lost ($)",
+          "axis": {
+            "format": "$~s"
+          }
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "filled": true,
+        "size": 130,
+        "opacity": 0.92,
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "scam_type",
+          "type": "nominal",
+          "sort": "-x",
+          "title": null,
+          "axis": {
+            "labelLimit": 300
+          }
+        },
+        "x": {
+          "field": "amount_lost",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "loss_group",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Major outlier",
+              "Other high-loss scams"
+            ],
+            "range": [
+              "#0071e3",
+              "#9bbcf7"
+            ]
+          },
+          "legend": {
+            "orient": "bottom"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "scam_type",
+            "type": "nominal",
+            "title": "Scam type"
+          },
+          {
+            "field": "primary_scam_category",
+            "type": "nominal",
+            "title": "Category"
+          },
+          {
+            "field": "amount_lost",
+            "type": "quantitative",
+            "title": "Amount lost",
+            "format": "$,.0f"
+          },
+          {
+            "field": "reports",
+            "type": "quantitative",
+            "title": "Reports",
+            "format": ","
+          },
+          {
+            "field": "average_loss_per_report",
+            "type": "quantitative",
+            "title": "Average loss per report",
+            "format": "$,.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 8,
+        "fontSize": 10,
+        "color": "#333333"
+      },
+      "encoding": {
+        "y": {
+          "field": "scam_type",
+          "type": "nominal",
+          "sort": "-x"
+        },
+        "x": {
+          "field": "amount_lost",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "amount_label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "gridColor": "#eeeeee",
+      "labelColor": "#333333",
+      "titleColor": "#111111"
+    }
+  }
+}

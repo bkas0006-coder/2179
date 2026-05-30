@@ -1,0 +1,37 @@
+﻿main_cybercrime_type,cybercrime_subcategory,cybercrime_incident_type,prevalence_2024_percent,adjusted_estimate_2023_percent,adjusted_estimate_2024_percent,significant_difference_2023_2024
+Online abuse and harassment,,,26.8,,,
+Malware,,,20.6,,,
+Identity crime and misuse,,,21.9,,,
+Fraud and scams,,,9.5,,,
+Any cybercrime (all),,,47.4,,,
+Online abuse and harassment,Extortion or harassment involving images or videos,,5.4,,,
+Online abuse and harassment,Impersonation,,7.6,,,
+Online abuse and harassment,Sharing without consent,,3.1,,,
+Online abuse and harassment,Stalking and harassing,,2.9,,,
+Online abuse and harassment,Controlling and restricting,,3.8,,,
+Online abuse and harassment,Hate speech,,3.2,,,
+Online abuse and harassment,Cyberbullying,,5.6,,,
+Online abuse and harassment,Unsolicited sexual content,,7.6,,,
+Online abuse and harassment,Other online abuse and harassment,,0.2,,,
+Malware,Suspected malware,,17.2,,,
+Malware,Pure ransomware,,2.4,,,
+Malware,Ransomware-related data theft and extortion,,2.6,,,
+Malware,Other malware,,0.4,,,
+Identity crime and misuse,Compromise of financial accounts,,17.5,,,
+Identity crime and misuse,Non financial identity compromise,,4.7,,,
+Identity crime and misuse,Other identity crime and misuse,,1.1,,,
+Fraud and scams,Investment scams,,1.5,,,
+Fraud and scams,Job and employment scams,,0.3,,,
+Fraud and scams,Buying products or services scams,,4.4,,,
+Fraud and scams,Donation scams,,0.2,,,
+Fraud and scams,Relationship scams,,0.2,,,
+Fraud and scams,Remote access scams,,0.9,,,
+Fraud and scams,Money recovery scams,,0.3,,,
+Fraud and scams,Unexpected money scams,,1,,,
+Fraud and scams,Phishing scams,,1.4,,,
+Fraud and scams,Other scams,,1.5,,,
+Online abuse and harassment,,,,27.5,25.9,p<.01
+Malware,,,,22.2,19.8,p<.001
+Identity crime and misuse,,,,20.4,20.6,no
+Fraud and scams,,,,8.1,6.9,p<.01
+Any cybercrime (all),,,,47,45.7,no

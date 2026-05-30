@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "width": "container",
+  "height": 410,
+  "data": {
+    "url": "data/vega_lite_ready/aic_help_seeking_core_2024.csv"
+  },
+  "mark": {
+    "type": "bar"
+  },
+  "encoding": {
+    "y": {
+      "field": "help_seeking_type",
+      "type": "nominal",
+      "title": null,
+      "axis": {
+        "labelLimit": 180
+      }
+    },
+    "x": {
+      "field": "prevalence_2024_percent",
+      "type": "quantitative",
+      "title": "Prevalence in 2024 (%)"
+    },
+    "yOffset": {
+      "field": "cybercrime_type"
+    },
+    "color": {
+      "field": "cybercrime_type",
+      "type": "nominal",
+      "title": "Cybercrime type",
+      "legend": {
+        "orient": "bottom",
+        "columns": 2,
+        "labelLimit": 160
+      }
+    },
+    "tooltip": [
+      {
+        "field": "cybercrime_type",
+        "type": "nominal",
+        "title": "Cybercrime type"
+      },
+      {
+        "field": "help_seeking_type",
+        "type": "nominal",
+        "title": "Help-seeking"
+      },
+      {
+        "field": "prevalence_2024_percent",
+        "type": "quantitative",
+        "title": "Prevalence",
+        "format": ".1f"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "gridColor": "#eeeeee",
+      "labelColor": "#333333",
+      "titleColor": "#111111"
+    }
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "width": "container",
+  "height": 420,
+  "data": {
+    "url": "data/vega_lite_ready/personal_fraud_state_scam_summary_2024_25.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.state_abbrev != 'AUS'"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "mean",
+          "field": "victimisation_rate_percent",
+          "as": "mean_victimisation_rate"
+        },
+        {
+          "op": "mean",
+          "field": "reporting_rate_percent",
+          "as": "mean_reporting_rate"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.reporting_rate_percent >= datum.mean_reporting_rate && datum.victimisation_rate_percent >= datum.mean_victimisation_rate ? 'Higher exposure + higher reporting' : datum.reporting_rate_percent < datum.mean_reporting_rate && datum.victimisation_rate_percent >= datum.mean_victimisation_rate ? 'Higher exposure + lower reporting' : 'Lower exposure'",
+      "as": "state_profile"
+    },
+    {
+      "calculate": "format(datum.victimisation_rate_percent, '.1f') + '%'",
+      "as": "victimisation_label"
+    },
+    {
+      "calculate": "format(datum.reporting_rate_percent, '.1f') + '%'",
+      "as": "reporting_label"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [5, 5],
+        "strokeWidth": 1.2,
+        "color": "#d2d2d7"
+      },
+      "encoding": {
+        "x": {
+          "field": "mean_victimisation_rate",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [5, 5],
+        "strokeWidth": 1.2,
+        "color": "#d2d2d7"
+      },
+      "encoding": {
+        "y": {
+          "field": "mean_reporting_rate",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 0.86,
+        "stroke": "white",
+        "strokeWidth": 1.4
+      },
+      "encoding": {
+        "x": {
+          "field": "victimisation_rate_percent",
+          "type": "quantitative",
+          "title": "Scam victimisation rate (%)",
+          "scale": {
+            "zero": false,
+            "nice": true
+          }
+        },
+        "y": {
+          "field": "reporting_rate_percent",
+          "type": "quantitative",
+          "title": "Reported to authority (%)",
+          "scale": {
+            "zero": false,
+            "nice": true
+          }
+        },
+        "size": {
+          "field": "experienced_total_000",
+          "type": "quantitative",
+          "title": "People experiencing scams ('000)",
+          "scale": {
+            "range": [180, 2200]
+          },
+          "legend": {
+            "orient": "bottom",
+            "format": ",.0f"
+          }
+        },
+        "color": {
+          "field": "state_profile",
+          "type": "nominal",
+          "title": "State profile",
+          "scale": {
+            "domain": [
+              "Higher exposure + higher reporting",
+              "Higher exposure + lower reporting",
+              "Lower exposure"
+            ],
+            "range": [
+              "#0071e3",
+              "#ff9f0a",
+              "#8e8e93"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "labelLimit": 180
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State/territory"
+          },
+          {
+            "field": "victimisation_rate_percent",
+            "type": "quantitative",
+            "title": "Victimisation rate",
+            "format": ".1f"
+          },
+          {
+            "field": "reporting_rate_percent",
+            "type": "quantitative",
+            "title": "Reported to authority",
+            "format": ".1f"
+          },
+          {
+            "field": "experienced_total_000",
+            "type": "quantitative",
+            "title": "Experienced scams ('000)",
+            "format": ",.1f"
+          },
+          {
+            "field": "reported_to_authority_000",
+            "type": "quantitative",
+            "title": "Reported to authority ('000)",
+            "format": ",.1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#1d1d1f"
+      },
+      "encoding": {
+        "x": {
+          "field": "victimisation_rate_percent",
+          "type": "quantitative",
+          "scale": {
+            "zero": false,
+            "nice": true
+          }
+        },
+        "y": {
+          "field": "reporting_rate_percent",
+          "type": "quantitative",
+          "scale": {
+            "zero": false,
+            "nice": true
+          }
+        },
+        "text": {
+          "field": "state_abbrev",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "gridColor": "#eeeeee",
+      "labelColor": "#333333",
+      "titleColor": "#111111"
+    }
+  }
+}

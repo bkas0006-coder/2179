@@ -1,0 +1,219 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "width": "container",
+  "height": 470,
+  "data": {
+    "url": "data/vega_lite_ready/scamwatch_scam_type_summary.csv"
+  },
+  "params": [
+    {
+      "name": "category_select",
+      "select": {
+        "type": "point",
+        "fields": ["primary_scam_category"]
+      },
+      "bind": "legend"
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.reports > 0 && datum.average_loss_per_report > 0"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "median",
+          "field": "average_loss_per_report",
+          "as": "median_average_loss"
+        }
+      ]
+    },
+    {
+      "window": [
+        {
+          "op": "rank",
+          "as": "severity_rank"
+        }
+      ],
+      "sort": [
+        {
+          "field": "average_loss_per_report",
+          "order": "descending"
+        }
+      ]
+    },
+    {
+      "calculate": "datum.severity_rank <= 3 ? 'Top three per-report severity' : 'Other scam types'",
+      "as": "severity_group"
+    },
+    {
+      "calculate": "'$' + format(datum.average_loss_per_report, ',.0f')",
+      "as": "avg_loss_label"
+    }
+  ],
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [6, 5],
+        "strokeWidth": 1.3,
+        "color": "#8e8e93"
+      },
+      "encoding": {
+        "x": {
+          "field": "median_average_loss",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "nice": true
+          }
+        },
+        "tooltip": [
+          {
+            "field": "median_average_loss",
+            "type": "quantitative",
+            "title": "Median average loss per report",
+            "format": "$,.0f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 0.86,
+        "stroke": "white",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "field": "average_loss_per_report",
+          "type": "quantitative",
+          "title": "Average loss per report ($)",
+          "scale": {
+            "type": "sqrt",
+            "nice": true
+          },
+          "axis": {
+            "format": "$~s"
+          }
+        },
+        "y": {
+          "field": "primary_scam_category",
+          "type": "nominal",
+          "title": null,
+          "axis": {
+            "labelLimit": 260
+          }
+        },
+        "size": {
+          "field": "reports",
+          "type": "quantitative",
+          "title": "Reports",
+          "scale": {
+            "range": [60, 900]
+          },
+          "legend": {
+            "format": "~s",
+            "orient": "right"
+          }
+        },
+        "color": {
+          "field": "primary_scam_category",
+          "type": "nominal",
+          "title": "Scam category",
+          "legend": {
+            "orient": "bottom",
+            "columns": 3,
+            "labelLimit": 170
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "category_select",
+            "value": 0.88
+          },
+          "value": 0.18
+        },
+        "tooltip": [
+          {
+            "field": "scam_type",
+            "type": "nominal",
+            "title": "Scam type"
+          },
+          {
+            "field": "primary_scam_category",
+            "type": "nominal",
+            "title": "Category"
+          },
+          {
+            "field": "average_loss_per_report",
+            "type": "quantitative",
+            "title": "Average loss per report",
+            "format": "$,.0f"
+          },
+          {
+            "field": "reports",
+            "type": "quantitative",
+            "title": "Reports",
+            "format": ","
+          },
+          {
+            "field": "amount_lost",
+            "type": "quantitative",
+            "title": "Amount lost",
+            "format": "$,.0f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.severity_rank <= 3"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 10,
+        "fontSize": 11,
+        "fontWeight": "bold",
+        "color": "#1d1d1f"
+      },
+      "encoding": {
+        "x": {
+          "field": "average_loss_per_report",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "nice": true
+          }
+        },
+        "y": {
+          "field": "primary_scam_category",
+          "type": "nominal"
+        },
+        "text": {
+          "field": "avg_loss_label",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "gridColor": "#eeeeee",
+      "labelColor": "#333333",
+      "titleColor": "#111111"
+    }
+  }
+}

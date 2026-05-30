@@ -1,0 +1,75 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "width": "container",
+  "height": 410,
+  "data": {
+    "url": "data/vega_lite_ready/aic_harms_individual_core_2024.csv"
+  },
+  "mark": {
+    "type": "rect"
+  },
+  "encoding": {
+    "x": {
+      "field": "harm_type",
+      "type": "nominal",
+      "title": null,
+      "axis": {
+        "labelAngle": -25
+      }
+    },
+    "y": {
+      "field": "cybercrime_type",
+      "type": "nominal",
+      "title": null,
+      "axis": {
+        "labelLimit": 170
+      }
+    },
+    "color": {
+      "field": "percent_2024",
+      "type": "quantitative",
+      "title": "Affected (%)",
+      "scale": {
+        "scheme": "blues"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "cybercrime_type",
+        "type": "nominal",
+        "title": "Cybercrime type"
+      },
+      {
+        "field": "harm_type",
+        "type": "nominal",
+        "title": "Harm type"
+      },
+      {
+        "field": "percent_2024",
+        "type": "quantitative",
+        "title": "2024",
+        "format": ".1f"
+      },
+      {
+        "field": "percent_2023",
+        "type": "quantitative",
+        "title": "2023",
+        "format": ".1f"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false,
+      "labelColor": "#333333",
+      "titleColor": "#111111"
+    }
+  }
+}

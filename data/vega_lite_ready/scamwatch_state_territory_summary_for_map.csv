@@ -1,0 +1,9 @@
+﻿state,state_abbrev,state_sort,amount_lost,reports,average_loss_per_report,top_scam_type_by_loss,top_contact_method_by_loss
+New South Wales,NSW,1,78381088.45,41571,1885.475174,Investment scams,Online
+Victoria,VIC,2,44290933.77,32649,1356.578571,Investment scams,Online
+Queensland,QLD,3,45141359.59,27199,1659.669826,Investment scams,Online
+South Australia,SA,4,10289127.25,9756,1054.64609,Investment scams,Online
+Western Australia,WA,5,36495106.56,14043,2598.811263,Investment scams,Online
+Tasmania,TAS,6,1898276.18,2775,684.063488,Investment scams,Online
+Northern Territory,NT,7,1958673.13,961,2038.161426,Investment scams,Online
+Australian Capital Territory,ACT,8,2810749.25,4065,691.45123,Investment scams,Online
